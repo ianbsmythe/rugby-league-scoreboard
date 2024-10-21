@@ -1,12 +1,31 @@
-body {
+html, body {
     margin: 0;
+    padding: 2vh;
     box-sizing: border-box;
-    background-image: url("images/wigan-warriors.jpg" );
-    background-size: cover;
-    background-position: center;
-    height: 100vh; 
+}
+
+body {
+    position: relative; /* Required for the pseudo-element */
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    height: 100vh; 
+    /* Ensure the content remains above the background image */
+    z-index: 1;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/wigan-warriors.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Prevents tiling */
+    opacity: 0.5; /* Adjust the opacity here */
+    z-index: -1; /* Ensure the image is behind the content */
 }
 
 .font-styling {
@@ -23,7 +42,7 @@ h1 {
     height: 6vh;
     background-color: rgba(31, 30, 30, 0.8);
     max-width: 100%;
-    margin: 3vh 2vh;
+    margin: 0;
     height: auto;
     padding: 2vh 3vh;
 }
@@ -44,10 +63,6 @@ h1 {
     width: 30%;
 }
 
-button {
-    gap: 1vh;
-}
-
 .team-score {
     display: flex;
     flex-direction: column;
@@ -59,10 +74,12 @@ button {
 
 .team-home {
     background: rgba(113, 24, 24, 0.8);
+    width: 100%;
 }
 
 .team-away { 
     background: rgba(61,51,166,0.8);
+    width: 100%;
 }
 
 #time-half-container {
@@ -95,11 +112,11 @@ button {
 }
 
 button {
-    background: darkgreen;
+    background: rgba(0,100,0,0.9);
     width: 100%;
     padding: 1vh;
     margin: 1vh 0;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -110,10 +127,12 @@ h3, h4, p, button {
 
 .score-display {
     background: black;
+    text-align: center;
     color:gold;
+    width: 60%;
     font-size: 14vh;
     font-weight: 700;
-    padding: 4vh 10vh;
+    padding: 4vh 1vh;
     margin: 0 2vh 2vh 2vh;
     border-radius: 10px;
 }
@@ -151,12 +170,17 @@ h3, h4, p, button {
     }
 
     .score-display {
-        font-size: 10vh;
+        font-size: 9vh;
         padding: 3vh 4vh;
     }
 
     .score-container, #time-half-container {
         width: 40%;
+
+    }
+
+    button {
+        border: 1px solid black;
     }
 }
 
@@ -183,5 +207,9 @@ h3, h4, p, button {
 
     .score-container, #time-half-container {
         width: 90%;
+    }
+
+    button {
+        border: 1px solid black;
     }
 }
