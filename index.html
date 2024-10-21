@@ -6,22 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rugby League Scoreboard</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1 class="font-styling">Rugby League Scoreboard</h1>
+        <h1 class="font-styling">RUGBY LEAGUE SCOREBOARD</h1>
     </header>
-    <div class="container">
-        <div>
-            <h3>HOME</h3>
+    <section>
+        <div class="main-container">
+            <div class="score-container">
+                <div class="team-score team-home">
+                    <h3 class="font-styling">HOME</h3>
+                    <p class="score-display font-styling">0</p>
+                </div>
+                <button class="try-btn font-styling team-home">TRY</button>
+                <button class="conversion-btn font-styling team-home">CONVERSION GOAL</button>
+                <button class="penalty-btn font-styling team-home">PENALTY GOAL</button>
+                <button class="drop-goal-btn font-styling team-home">DROP GOAL</button>
+            </div>
+            <div id="time-half-container">
+                <div id="time-container">
+                    <h4 class="font-styling">TIME</h4>
+                    <P id="time-display" class="font-styling">40:00</P>
+                    <button id="start-stop-button" class="font-styling">PLAY/PAUSE</button>
+                    <button id="new-game-button" class="font-styling">NEW GAME</button>
+                </div>
+                <div id="half-container">
+                    <h4 class="font-styling">HALF</h4>
+                    <p id="half-display" class="font-styling">1</p>
+                    <button id="first-half-button" class="font-styling">FIRST HALF</button>
+                    <button id="second-half-button" class="font-styling">SECOND HALF</button>
+                </div>
+            </div>
+            <div class="score-container">
+                <div class="team-score team-away">
+                    <h3 class="font-styling">AWAY</h3>
+                    <p class="score-display font-styling">0</p>
+                </div>
+                <button class="try-btn font-styling team-away">TRY</button>
+                <button class="conversion-btn font-styling team-away">CONVERSION GOAL</button>
+                <button class="penalty-btn font-styling team-away">PENALTY GOAL</button>
+                <button class="drop-goal-btn font-styling team-away">DROP GOAL</button>
+            </div>
         </div>
-        <div>
-            <h3>GUEST</h3>
-        </div>
-    </div>
+    </section>
     
     <script src="script.js"></script>
 </body>
