@@ -73,7 +73,7 @@ function homeTry() {
 }
 ```
 
-The timer is initialized when the page loads:
+The timer is initialised when the page loads:
 
 ```javascript
 window.onload = function() {
@@ -92,7 +92,7 @@ window.onload = function() {
 
 ## Future Improvements
 
-- Add a settings option to customize the game length or modify score values for each event.
+- Add a settings option to customise the game length or modify score values for each event.
 - Implement sound effects for scoring and time events.
 
 ## License
