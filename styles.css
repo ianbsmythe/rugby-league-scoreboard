@@ -1,21 +1,23 @@
-html, body {
+/* Reset and base styles */
+*, *::before, *::after {
     margin: 0;
-    padding: 2vh;
+    padding: 0;
     box-sizing: border-box;
 }
 
+/* Layout */
 body {
-    position: relative; /* Required for the pseudo-element */
+    position: relative; 
     font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    height: 100vh; 
-    /* Ensure the content remains above the background image */
+    min-height: 100vh;
     z-index: 1;
+    padding: 20px;
 }
 
+/* Background image */
 body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -23,11 +25,12 @@ body::before {
     background-image: url("images/wigan-warriors.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; /* Prevents tiling */
-    opacity: 0.5; /* Adjust the opacity here */
-    z-index: -1; /* Ensure the image is behind the content */
+    background-repeat: no-repeat; 
+    opacity: 0.5; 
+    z-index: -1; 
 }
 
+/* Common styles */
 .font-styling {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
@@ -35,31 +38,29 @@ body::before {
     border-radius: 10px;
 }
 
+/* Header styles */
 h1 {
     text-align: center;
     font-size: 8vh;
     border: 2px solid black;
-    height: 6vh;
     background-color: rgba(31, 30, 30, 0.8);
-    max-width: 100%;
-    margin: 0;
-    height: auto;
     padding: 2vh 3vh;
+    margin-bottom: 2vh;
 }
 
+/* Container layouts */
 .main-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: auto 2vh;
     gap: 3vh;
+    padding: 0 2vh;
 }
 
 .score-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
     width: 30%;
 }
 
@@ -67,132 +68,142 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2vh auto ;
+    margin: 2vh 0;
     border: 2px solid black;
     border-radius: 10px;
+    width: 100%;
 }
 
+/* Team specific styles */
 .team-home {
     background: rgba(113, 24, 24, 0.8);
-    width: 100%;
 }
 
 .team-away { 
-    background: rgba(61,51,166,0.8);
-    width: 100%;
+    background: rgba(61, 51, 166, 0.8);
 }
 
+/* Time and half container styles */
 #time-half-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     width: 30%;
-    padding: auto;
-    margin: auto;
+    gap: 2vh;
 }
 
-#time-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    padding: auto;
-    gap: 1vh
-}
-
+#time-container,
 #half-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: auto;
-    padding: auto;
-    gap: 1vh
+    width: 100%;
+    gap: 1vh;
 }
 
+/* Button styles */
 button {
-    background: rgba(0,100,0,0.9);
+    background: rgba(0, 100, 0, 0.9);
     width: 100%;
     padding: 1vh;
     margin: 1vh 0;
     border: 2px solid black;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 3vh;
 }
 
-h3, h4, p, button {
-    font-size: 3vh;    
+/* Typography */
+h3, h4, p {
+    font-size: 3vh;
 }
 
+/* Score display */
 .score-display {
     background: black;
     text-align: center;
-    color:gold;
-    width: 60%;
+    color: gold;
+    width: 50%;
     font-size: 14vh;
     font-weight: 700;
-    padding: 4vh 1vh;
+    padding: 4vh 0;
     margin: 0 2vh 2vh 2vh;
     border-radius: 10px;
+    min-width: fit-content;
 }
 
+/* Center control display */
+.center-control-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(31, 30, 30, 0.8);
+    padding: 1vh 2vh;
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 100%;
+}
+
+/* Media Queries */
 @media (max-width: 1024px) {
     h1 {
         font-size: 6vh;
         padding: 1vh 2vh;
-        max-width: 100%;
-    }
-
-    h3, h4, p, button {
-        font-size: 3vh;    
     }
 
     .score-display {
         font-size: 12vh;
         padding: 3vh 8vh;
+        width: 80%;
+        margin: 0 1vh 2vh 1vh;  
     }
 
-    .score-container, #time-half-container {
+    .score-container,
+    #time-half-container {
         width: 33%;
     }
 }
 
 @media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
     h1 {
         font-size: 5vh;
-        padding: 1vh 2vh;
-        max-width: 100%;
     }
 
     h3, h4, p, button {
-        font-size: 1.5vh;    
+        font-size: 1.5vh;
     }
 
     .score-display {
         font-size: 9vh;
         padding: 3vh 4vh;
+        width: 100%;  
+        margin: 0 0.5vh 2vh 0.5vh; 
     }
 
-    .score-container, #time-half-container {
+    .score-container,
+    #time-half-container {
         width: 40%;
-
     }
 
     button {
-        border: 1px solid black;
+        border-width: 1px;
     }
 }
 
 @media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
     h1 {
         font-size: 4vh;
-        padding: 1vh 2vh;
-        max-width: 100%;
     }
 
     h3, h4, p, button {
-        font-size: 2.5vh;    
+        font-size: 2.5vh;
     }
 
     .score-display {
@@ -205,11 +216,8 @@ h3, h4, p, button {
         align-items: center;
     }
 
-    .score-container, #time-half-container {
+    .score-container,
+    #time-half-container {
         width: 90%;
-    }
-
-    button {
-        border: 1px solid black;
     }
 }

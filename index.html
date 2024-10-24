@@ -4,51 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rugby League Scoreboard for tracking match scores, time, and game progression">
     <title>Rugby League Scoreboard</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1 class="font-styling">RUGBY LEAGUE SCOREBOARD</h1>
+    <header role="banner">
+        <h1 class="font-styling" aria-label="Rugby League Scoreboard">RUGBY LEAGUE SCOREBOARD</h1>
     </header>
-    <section>
+    
+    <main role="main">
         <div class="main-container">
-            <div class="score-container">
+            <!-- Home Team Section -->
+            <div class="score-container" role="region" aria-label="Home Team Controls">
                 <div class="team-score team-home">
                     <h3 class="font-styling">HOME</h3>
-                    <p class="score-display font-styling">0</p>
+                    <p class="score-display font-styling" role="status" aria-live="polite" aria-label="Home team score" id="home-score">0</p>
                 </div>
-                <button class="try-btn font-styling team-home">TRY</button>
-                <button class="conversion-btn font-styling team-home">CONVERSION GOAL</button>
-                <button class="penalty-btn font-styling team-home">PENALTY GOAL</button>
-                <button class="drop-goal-btn font-styling team-home">DROP GOAL</button>
+                <button class="try-btn font-styling team-home" onclick="homeTry()" aria-label="Add try for home team">TRY</button>
+                <button class="conversion-btn font-styling team-home" onclick="homeConversion()" aria-label="Add conversion goal for home team">CONVERSION GOAL</button>
+                <button class="penalty-btn font-styling team-home" onclick="homePenalty()" aria-label="Add penalty goal for home team">PENALTY GOAL</button>
+                <button class="drop-goal-btn font-styling team-home" onclick="homeDropGoal()" aria-label="Add drop goal for home team">DROP GOAL</button>
             </div>
-            <div id="time-half-container">
+
+            <!-- Game Controls Section -->
+            <div id="time-half-container" role="region" aria-label="Game Controls">
+                <!-- Time Controls -->
                 <div id="time-container">
-                    <h4 class="font-styling">TIME</h4>
-                    <P id="time-display" class="font-styling">40:00</P>
-                    <button id="start-stop-button" class="font-styling">PLAY/PAUSE</button>
-                    <button id="new-game-button" class="font-styling">NEW GAME</button>
+                    <div class="center-control-display">
+                        <h4 class="font-styling">TIME</h4>
+                        <p id="time-display" class="font-styling" role="timer" aria-live="polite">40:00</p>
+                    </div>
+                    <button id="start-stop-button" onclick="pauseTimer()" class="font-styling" aria-label="Play or pause game timer">PLAY/PAUSE</button>
+                    <button id="new-game-button" onclick="newGame()" class="font-styling" aria-label="Start new game">NEW GAME</button>
                 </div>
+
+                <!-- Half Controls -->
                 <div id="half-container">
-                    <h4 class="font-styling">HALF</h4>
-                    <p id="half-display" class="font-styling">1</p>
-                    <button id="first-half-button" class="font-styling">FIRST HALF</button>
-                    <button id="second-half-button" class="font-styling">SECOND HALF</button>
+                    <div class="center-control-display">
+                        <h4 class="font-styling">HALF</h4>
+                        <p id="half-display" class="font-styling" role="status" aria-live="polite" aria-label="Current half">1</p>
+                    </div>
                 </div>
             </div>
-            <div class="score-container">
+
+            <!-- Away Team Section -->
+            <div class="score-container" role="region" aria-label="Away Team Controls">
                 <div class="team-score team-away">
                     <h3 class="font-styling">AWAY</h3>
-                    <p class="score-display font-styling">0</p>
+                    <p class="score-display font-styling" role="status" aria-live="polite" aria-label="Away team score" id="away-score">0</p>
                 </div>
-                <button class="try-btn font-styling team-away">TRY</button>
-                <button class="conversion-btn font-styling team-away">CONVERSION GOAL</button>
-                <button class="penalty-btn font-styling team-away">PENALTY GOAL</button>
-                <button class="drop-goal-btn font-styling team-away">DROP GOAL</button>
+                <button class="try-btn font-styling team-away" onclick="awayTry()" aria-label="Add try for away team">TRY</button>
+                <button class="conversion-btn font-styling team-away" onclick="awayConversion()" aria-label="Add conversion goal for away team">CONVERSION GOAL</button>
+                <button class="penalty-btn font-styling team-away" onclick="awayPenalty()" aria-label="Add penalty goal for away team">PENALTY GOAL</button>
+                <button class="drop-goal-btn font-styling team-away" onclick="awayDropGoal()" aria-label="Add drop goal for away team">DROP GOAL</button>
             </div>
         </div>
-    </section>
+    </main>
     
     <script src="script.js"></script>
 </body>
+</html>
